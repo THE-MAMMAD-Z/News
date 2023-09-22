@@ -66,18 +66,26 @@
                                 <div class="main-menu d-none d-md-block">
                                     <nav>                  
                                         <ul id="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">about</a></li>
-                                            <li><a href="categori.html">Category</a></li>
-                                            <li><a href="latest_news.html">Latest News</a></li>
+                                            <li><a href="{% url "home:home" %}">Home</a></li>
+                                            <li><a href="{% url "home:about" %}">about</a></li>
+                                            <li><a href={% url "news:category" name='SPORT' %}>Category</a></li>
+                                            {% comment %} <li><a href="latest_news.html">Latest News</a></li> {% endcomment %}
                                             <li><a href="#">Pages</a>
                                                 <ul class="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog_details.html">Blog Details</a></li>
+                                                    <li><a href="{% url "news:news" %}">Blog</a></li>
+                                                    {% comment %} <li><a href="">Blog Details</a></li> {% endcomment %}
                                                     <li><a href="elements.html">Element</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="{% url "home:contact" %}">Contact</a></li>
+
+                                            {% if request.user.is_authenticated %}
+                                            <li><a href="{% url "home:home" %}">{{request.user.username}}</a></li>
+                                            <li><a href="{% url "account:logoutt" %}">Logout</a></li>
+                                            {% else %}
+                                            <li><a href="{% url "account:loginn" %}">Login</a></li>
+                                            <li><a href="{% url "account:signup" %}">Sign-up</a></li>
+                                            {%  endif %}
                                         </ul>
                                     </nav>
                                 </div>

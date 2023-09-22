@@ -187,33 +187,62 @@
                 <h2 class="contact-title">Get in Touch</h2>
             </div>
             <div class="col-lg-8">
-                <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                {% comment %} <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Submit">
+                </form> {% endcomment %}
+                {% comment %} <form class="form-contact contact_form" action="" method="post">
+                {% csrf_token %}
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                {% comment %} <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea> 
+                                {{form.message}}
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                {% comment %} <input class="form-control valid" name="name" id="name" type="text"   placeholder="Enter your name"> 
+                                {{form.name}}
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                {% comment %} <input class="form-control valid" name="email" id="email" type="email"  placeholder="Email"> 
+                                {{form.email}}
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                                {% comment %} <input class="form-control" name="subject" id="subject" type="text"  placeholder="Enter Subject"> 
+                                {{form.subject}}
                             </div>
                         </div>
                     </div>
                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                        <button type="submit" value='submit' class="button button-contactForm boxed-btn">Send</button>
                     </div>
-                </form>
+                </form>  {% endcomment %}
+
+                <form action="" method="post" class="tm-contact-form">         
+                    {% csrf_token %}                    
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Name"  />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email"  />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject"  />
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" class="form-control" rows="6" placeholder="Message" ></textarea>
+                        </div> 
+                        
+                        <button style="background:black;" type="submit" class="tm-btn">Submit</button>                        
+                    </form>
+
             </div>
             <div class="col-lg-3 offset-lg-1">
                 <div class="media contact-info">

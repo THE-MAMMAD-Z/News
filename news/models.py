@@ -7,7 +7,7 @@ class News(models.Model) :
     updated_time=models.DateTimeField(auto_now=True)
     content=models.TextField()
     author=models.CharField(max_length=100)
-    category=models.ForeignKey("Category", on_delete=models.DO_NOTHING)
+    category=models.ManyToManyField("Category")
 
 
     def __str__(self):

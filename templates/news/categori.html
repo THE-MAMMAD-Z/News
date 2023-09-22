@@ -1,3 +1,6 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block head %}
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -7,31 +10,32 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
     
     <!-- CSS here -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/ticker-style.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/slicknav.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/ticker-style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 </head>
-
-<body>
+{% endblock head %}
+{% comment %}
+<body> 
 <!-- Preloader Start -->
 <div id="preloader-active">
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="preloader-inner position-relative">
             <div class="preloader-circle"></div>
             <div class="preloader-img pere-text">
-                <img src="assets/img/logo/logo.png" alt="">
+                <img src="{% static 'assets/img/logo/logo.png' %}" alt="">
             </div>
         </div>
     </div>
@@ -66,12 +70,12 @@
                         <!-- Logo -->
                         <div class="col-xl-3 col-lg-3 col-md-3 d-none d-md-block">
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9 col-md-9">
                             <div class="header-banner f-right ">
-                                <img src="assets/img/gallery/header_card.png" alt="">
+                                <img src="{% static 'assets/img/gallery/header_card.png' %}" alt="">
                             </div>
                         </div>
                     </div>
@@ -83,7 +87,7 @@
                         <div class="col-xl-8 col-lg-8 col-md-12 header-flex">
                             <!-- sticky -->
                             <div class="sticky-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu d-none d-md-block">
@@ -130,7 +134,8 @@
         </div>
     </div>
     <!-- Header End -->
-</header>
+</header> {% endcomment %}
+{% block content %}
 <main>
     <!-- About US Start -->
     <div class="about-area2 gray-bg pt-60 pb-60">
@@ -145,16 +150,19 @@
                                         <h3>Whats New</h3>
                                     </div>
                                 </div>
+
                                 <div class="col-xl-8 col-md-9">
                                     <div class="properties__button">
+                                        
                                         <!--Nav Button  -->                                            
-                                        <nav>                                                 
+                                        <nav>  
                                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Lifestyle</a>
-                                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Travel</a>
-                                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Fashion</a>
-                                                <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Sports</a>
-                                                <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab" href="#nav-nav-Sport" role="tab" aria-controls="nav-contact" aria-selected="false">Technology</a>
+                                                <a class="nav-item nav-link {% if name == 'SPORT' %}active  {% endif %}" id="nav-home-tab"  href="{% url "news:category" name="SPORT" %}" role="tab" aria-controls="nav-home" aria-selected="true">SPORT</a>
+                                                <a class="nav-item nav-link {% if name == 'ART' %}active{% endif %}" id="nav-profile-tab"  href="{% url "news:category" name="ART" %}" role="tab" aria-controls="nav-profile" aria-selected="false">ART</a>
+                                                <a class="nav-item nav-link {% if name == 'CAR' %}active{% endif %}" id="nav-contact-tab"  href="{% url "news:category" name="CAR" %}" role="tab" aria-controls="nav-contact" aria-selected="false">CAR</a>
+                                                <a class="nav-item nav-link {% if name == 'TRAVEL' %}active{% endif %}" id="nav-last-tab"  href="{% url "news:category" name="TRAVEL" %}" role="tab" aria-controls="nav-contact" aria-selected="false">TRAVEL</a>
+                                                <a class="nav-item nav-link {% if name == 'FOOD' %}active{% endif %}" id="nav-Sports"  href="{% url "news:category" name="FOOD" %}" role="tab" aria-controls="nav-contact" aria-selected="false">FOOD</a>
+                                                <a class="nav-item nav-link {% if name == 'TECHNOLOGY' %}active{% endif %}" id="nav-Sports"  href="{% url "news:category" name="TECHNOLOGY" %}" role="tab" aria-controls="nav-contact" aria-selected="false">TECHNOLOGY</a>
                                             </div>
                                         </nav>
                                         <!--End Nav Button  -->
@@ -169,84 +177,20 @@
                                         <!-- card one -->
                                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">       
                                             <div class="row">
+                                                {% for post in news %}
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details1.png" alt="">
+                                                            <img src="{{post.image.url}}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
+                                                            <h4><a href="{% url "news:detail" num=post.pk %}">{{post.title}}</a></h4>
+                                                            <span>{{post.author}}   -   {{post.updated_time}}</span>
+                                                            <p>{{post.content|truncatewords:15}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details2.png" alt="">
-                                                        </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details3.png" alt="">
-                                                        </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details4.png" alt="">
-                                                        </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details5.png" alt="">
-                                                        </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                                    <div class="whats-news-single mb-40 mb-40">
-                                                        <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details6.png" alt="">
-                                                        </div>
-                                                        <div class="whates-caption whates-caption2">
-                                                            <h4><a href="#">Secretart for Economic Air
-                                                                plane that looks like</a></h4>
-                                                            <span>by Alice cloe   -   Jun 19, 2020</span>
-                                                            <p>Struggling to sell one multi-million dollar home currently on the market won’t stop actress and singer Jennifer Lopez.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                {% endfor %}
                                             </div>
                                         </div>
                                         <!-- Card two -->
@@ -255,7 +199,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details4.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details4.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -268,7 +212,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details6.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details6.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -281,7 +225,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details5.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details5.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -294,7 +238,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details4.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details4.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -307,7 +251,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details5.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details5.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -320,7 +264,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details1.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details1.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -338,7 +282,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details3.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details3.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -351,7 +295,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details5.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details5.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -364,7 +308,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details1.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details1.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -377,7 +321,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details4.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details4.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -390,7 +334,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details3.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details3.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -403,7 +347,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details6.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details6.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -421,7 +365,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details6.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details6.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -434,7 +378,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details2.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details2.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -447,7 +391,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details4.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details4.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -460,7 +404,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details2.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details2.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -473,7 +417,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details5.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details5.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -486,7 +430,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details1.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details1.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -504,7 +448,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details1.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details1.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -517,7 +461,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details2.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details2.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -530,7 +474,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details3.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details3.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -543,7 +487,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details4.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details4.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -556,7 +500,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details5.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details5.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -569,7 +513,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="whats-news-single mb-40 mb-40">
                                                         <div class="whates-img">
-                                                            <img src="assets/img/gallery/whats_news_details6.png" alt="">
+                                                            <img src="{% static 'assets/img/gallery/whats_news_details6.png' %}" alt="">
                                                         </div>
                                                         <div class="whates-caption whates-caption2">
                                                             <h4><a href="#">Secretart for Economic Air
@@ -593,7 +537,7 @@
                             <div class="single-box">
                                 <div class="follow-us d-flex align-items-center">
                                     <div class="follow-social">
-                                        <a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a>
+                                        <a href="#"><img src="{% static 'assets/img/news/icon-fb.png' %}" alt=""></a>
                                     </div>
                                     <div class="follow-count">  
                                         <span>8,045</span>
@@ -602,7 +546,7 @@
                                 </div> 
                                 <div class="follow-us d-flex align-items-center">
                                     <div class="follow-social">
-                                        <a href="#"><img src="assets/img/news/icon-tw.png" alt=""></a>
+                                        <a href="#"><img src="{% static 'assets/img/news/icon-tw.png' %}" alt=""></a>
                                     </div>
                                     <div class="follow-count">
                                         <span>8,045</span>
@@ -611,7 +555,7 @@
                                 </div>
                                     <div class="follow-us d-flex align-items-center">
                                     <div class="follow-social">
-                                        <a href="#"><img src="assets/img/news/icon-ins.png" alt=""></a>
+                                        <a href="#"><img src="{% static 'assets/img/news/icon-ins.png' %}" alt=""></a>
                                     </div>
                                     <div class="follow-count">
                                         <span>8,045</span>
@@ -620,7 +564,7 @@
                                 </div>
                                 <div class="follow-us d-flex align-items-center">
                                     <div class="follow-social">
-                                        <a href="#"><img src="assets/img/news/icon-yo.png" alt=""></a>
+                                        <a href="#"><img src="{% static 'assets/img/news/icon-yo.png' %}" alt=""></a>
                                     </div>
                                     <div class="follow-count">
                                         <span>8,045</span>
@@ -631,7 +575,7 @@
                         </div>
                         <!-- New Poster -->
                         <div class="news-poster d-none d-lg-block">
-                            <img src="assets/img/news/news_card.jpg" alt="">
+                            <img src="{% static 'assets/img/news/news_card.jpg' %}" alt="">
                         </div>
                     </div>
                 </div>
@@ -670,7 +614,8 @@
     </div>
     <!-- End pagination  -->
 </main>
-<footer>
+{% endblock content %}
+{% comment %} <footer>
     <!-- Footer Start-->
     <div class="footer-main footer-bg">
         <div class="footer-area footer-padding">
@@ -681,7 +626,7 @@
                             <div class="single-footer-caption mb-30">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <a href="index.html"><img src="{% static 'assets/img/logo/logo2_footer.png' %}" alt=""></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
@@ -701,7 +646,7 @@
                             <!-- Popular post -->
                             <div class="whats-right-single mb-20">
                                 <div class="whats-right-img">
-                                    <img src="assets/img/gallery/footer_post1.png" alt="">
+                                    <img src="{% static 'assets/img/gallery/footer_post1.png' %}" alt="">
                                 </div>
                                 <div class="whats-right-cap">
                                     <h4><a href="details.html">Scarlett’s disappointment at latest accolade</a></h4>
@@ -711,7 +656,7 @@
                             <!-- Popular post -->
                             <div class="whats-right-single mb-20">
                                 <div class="whats-right-img">
-                                    <img src="assets/img/gallery/footer_post2.png" alt="">
+                                    <img src="{% static 'assets/img/gallery/footer_post2.png' %}" alt="">
                                 </div>
                                 <div class="whats-right-cap">
                                     <h4><a href="details.html">Scarlett’s disappointment at latest accolade</a></h4>
@@ -721,7 +666,7 @@
                             <!-- Popular post -->
                             <div class="whats-right-single mb-20">
                                 <div class="whats-right-img">
-                                    <img src="assets/img/gallery/footer_post3.png" alt="">
+                                    <img src="{% static 'assets/img/gallery/footer_post3.png' %}" alt="">
                                 </div>
                                 <div class="whats-right-cap">
                                     <h4><a href="details.html">Scarlett’s disappointment at latest accolade</a></h4>
@@ -733,7 +678,7 @@
                     <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
                         <div class="single-footer-caption mb-50">
                             <div class="banner">
-                                <img src="assets/img/gallery/body_card4.png" alt="">
+                                <img src="{% static 'assets/img/gallery/body_card4.png' %}" alt="">
                             </div>
                         </div>
                     </div>
@@ -768,42 +713,43 @@
         </form>
     </div>
 </div>
-<!-- Search model end -->
-
+<!-- Search model end --> {% endcomment %}
+{% block js %}
 <!-- JS here -->
-    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="{% static './assets/js/vendor/modernizr-3.5.0.min.js'  %}"></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="{% static './assets/js/vendor/jquery-1.12.4.min.js'  %}"></script>
+    <script src="{% static './assets/js/popper.min.js'  %}"></script>
+    <script src="{% static './assets/js/bootstrap.min.js'  %}"></script>
     <!-- Jquery Mobile Menu -->
-    <script src="./assets/js/jquery.slicknav.min.js"></script>
+    <script src="{% static './assets/js/jquery.slicknav.min.js'  %}"></script>
 
     <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script src="./assets/js/owl.carousel.min.js"></script>
-    <script src="./assets/js/slick.min.js"></script>
+    <script src="{% static './assets/js/owl.carousel.min.js'  %}"></script>
+    <script src="{% static './assets/js/slick.min.js'  %}"></script>
     <!-- Date Picker -->
-    <script src="./assets/js/gijgo.min.js"></script>
+    <script src="{% static './assets/js/gijgo.min.js'  %}"></script>
     <!-- One Page, Animated-HeadLin -->
-    <script src="./assets/js/wow.min.js"></script>
-    <script src="./assets/js/animated.headline.js"></script>
-    <script src="./assets/js/jquery.magnific-popup.js"></script>
+    <script src="{% static './assets/js/wow.min.js'  %}"></script>
+    <script src="{% static './assets/js/animated.headline.js'  %}"></script>
+    <script src="{% static './assets/js/jquery.magnific-popup.js'  %}"></script>
 
     <!-- Scrollup, nice-select, sticky -->
-    <script src="./assets/js/jquery.scrollUp.min.js"></script>
-    <script src="./assets/js/jquery.nice-select.min.js"></script>
-    <script src="./assets/js/jquery.sticky.js"></script>
+    <script src="{% static './assets/js/jquery.scrollUp.min.js'  %}"></script>
+    <script src="{% static './assets/js/jquery.nice-select.min.js'  %}"></script>
+    <script src="{% static './assets/js/jquery.sticky.js'  %}"></script>
     
     <!-- contact js -->
-    <script src="./assets/js/contact.js"></script>
-    <script src="./assets/js/jquery.form.js"></script>
-    <script src="./assets/js/jquery.validate.min.js"></script>
-    <script src="./assets/js/mail-script.js"></script>
-    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="{% static './assets/js/contact.js'  %}"></script>
+    <script src="{% static './assets/js/jquery.form.js'  %}"></script>
+    <script src="{% static './assets/js/jquery.validate.min.js'  %}"></script>
+    <script src="{% static './assets/js/mail-script.js'  %}"></script>
+    <script src="{% static './assets/js/jquery.ajaxchimp.min.js'  %}"></script>
     
     <!-- Jquery Plugins, main Jquery -->	
-    <script src="./assets/js/plugins.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="{% static './assets/js/plugins.js'  %}"></script>
+    <script src="{% static './assets/js/main.js'  %}"></script>
     
 </body>
 </html>
+{% endblock js %}

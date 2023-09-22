@@ -1,0 +1,22 @@
+{% load static %}
+{% load humanize %} 
+<style>
+    #lol{
+        max-width: 180px;
+        max-height: 230px;
+    }
+</style>
+<aside class="single_sidebar_widget popular_post_widget">
+    <h3 class="widget_title">Recent Post</h3>
+    {% for post in latest %}
+    <div class="media post_item">
+        <img id="lol" src="{{post.image.url}}" alt="post">
+        <div class="media-body">
+            <a href="{% url "news:detail" num=post.pk %}">
+                <h3>{{post.title}}</h3>
+            </a>
+            <p>{{post.created_time|naturaltime}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</aside>
