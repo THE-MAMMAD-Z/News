@@ -5,7 +5,7 @@ from .models import News , Category
 
 def news(request):
     news = News.objects.all()
-    paginator = Paginator(news, 1)
+    paginator = Paginator(news, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     art = News.objects.filter(category__name="ART").count()

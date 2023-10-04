@@ -19,11 +19,16 @@ from django.urls import path , include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('news/',include('news.urls')),
-    path('account/',include('accounts.urls'))
+    path('account/',include('accounts.urls')),
+    #when using token we dont need this
+    #path('api-auth/', include('rest_framework.urls')),
+    path("api/",include("api.urls")),
+
 ]
 
 urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
