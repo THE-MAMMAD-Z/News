@@ -20,94 +20,60 @@
 		<h1>Creative SignUp Form</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="{% url "account:signup" %}" method="post" enctype="multipart/form-data" >
+				<form action="{% url "account:edit" %}" method="post">
                     {% csrf_token %}
-
-
-					<div class="form-group"><br>
+					{% comment %} <div class="form-group">
 						<label for="first_name">Name:</label>
 						{{formData.first_name}}
 					</div>
 			
-					<div class="form-group"><br>
+					<div class="form-group">
 						<label for="last_name">Family:</label>
 						{{formData.last_name}}
 					</div>
 			
-					<div class="form-group"><br>
+					<div class="form-group">
 						<label for="email">Email:</label>
 						{{formData.email}}
 					</div>
 			
-					<div class="form-group"><br>
+					<div class="form-group">
 						<label for="phone">Phone:</label>
 						{{formData.phone}}
 					</div>
 			
-					<div class="form-group"><br>
-					    <label for="username">address:</label>
-					    {{formData.address}}
-				    </div>
-
-
-					<div class="form-group"><br>
-					    <label for="username">gender:</label>
-					    {{formData.Gender}}
-				    </div>
+					
 			
-					<div class="form-group"><br>
-					    <label for="username">Username:</label>
-					    {{formData.username}}
-				    </div>
+					<div class="form-group">
+					  <label for="username">Username:</label>
+					  {{formData.username}}
+				  </div>
 			
-					<div class="form-group"><br>
+					<div class="form-group">
 						<label for="password">Password:</label>
 						{{formData.password}}
 					</div>
 			
-					<div class="form-group"><br>
+					<div class="form-group">
 						<label for="profile_picture">Profile Image:</label>
 						{{formData.profile_picture}}
 					</div>
 			
-					{% comment %} <div class="form-group">
+					<div class="form-group">
 						<button type="submit">Register</button>
-					</div>  
-					<label >Username</label>
-					<input class="text" type="text" name="username"  required=""><br> 
+					</div>  {% endcomment %}
 
-					<label >First Name</label>
-					<input class="text " type="text" name="first_name"  required=""><br>  
-					
-					<label >Last Name</label>
-					<input class="text " type="text" name="last_name"  required=""><br>  
-					
-					<label >Phone</label><br>
-					<input class="text " type="text" name="phone"  required=""><br> 
-					
-					
-					
-					 <label for="gender">Gender:</label><br>
-					{{formData.Gender}}
-					<br>  
-					<br> 
-					<label >Address</label><br>
-					<input class="text " type="text" name="address"  required=""><br> 
-					
-					<label >Email</label>
-					<input class="text " type="email" name="email"  required=""><br>  
-					
-					<label >Password</label>
-					<input class="text " type="password" name="password"  required=""><br>  
-										
-					<label >Profiel Picture</label>
-					
-						{{formData.profile_picture}} {% endcomment %}
-
-						<div class="wthree-text">
-						<div class="clear"> </div>
-					
-					<input type="submit" value="SIGNUP">
+                     <label >first name : {{ userEditForm.first_name }}</label><br>
+					<label >last_name : {{ userEditForm.last_name }}</label><br>
+					<label >Phone : {{ profileEditForm.phone }}</label><br>
+					<label >Email : {{ userEditForm.email }}</label><br>
+                    <label >Gender : {{ profileEditForm.Gender }}</label><br><br>
+					<label >Address : {{ profileEditForm.address }}</label> <br>
+					{% comment %} <label >Profile Image : {{ userEditForm.profile_picture }}</label> {% endcomment %}
+                    {% comment %} <img style="max-width:200px " src='{{ profileImage.url }}'> {% endcomment %}
+                    {% comment %} <label for="profileimage">Profile Image:</label>
+                    {{ profileEditForm.profilepicture }} {% endcomment %}
+					<input type="submit" value="EDIT">
 				</form> 
                 <form>
                 
