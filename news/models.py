@@ -20,3 +20,18 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
+
+class Comment(models.Model):
+    post=models.ForeignKey(News,on_delete=models.CASCADE)
+    name=models.CharField(max_length=255)
+    email=models.EmailField()
+    subject=models.CharField(max_length=255)
+    message=models.TextField()
+    created_time=models.DateTimeField(auto_now_add=True)
+    Active=models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        ordering=['-created_time']

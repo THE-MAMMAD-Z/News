@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from django.core.paginator import Paginator
-from .models import News , Category
+from .models import News , Category , Comment
+from .forms import CommentForm
 
 def news(request):
     news = News.objects.all()
@@ -24,8 +25,15 @@ def news(request):
     return render(request,"news/blog.html",context)
 
 def detail_news(request,num):
+    if request.method=='POST':
+        form=CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    form=CommentForm()
     news = News.objects.get(pk=num)
-    return render(request , "news/blog_details.html",{"news":news})
+    comments=Comment.objects.filter(post=news,Active=1)
+    return render(request , "news/blog_details.html",{"news":news , "comments" : comments , "form" : form})
 
 
 def categori(request,name):
@@ -44,3 +52,7 @@ def search(request):
         s = request.GET.get('q')
         posts = News.objects.filter(content__contains=s)
         return render(request, 'news/blog.html', {"page_obj": posts})
+    
+
+
+
