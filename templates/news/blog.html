@@ -1,4 +1,5 @@
 {% extends "base/base.html" %}
+{% load cache %}
 {% load static %}
 {% load cat_tags %}
 {% block head %}
@@ -220,6 +221,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
+                    
                     <div class="blog_right_sidebar">
 
                         {% include "base/search.html" %}

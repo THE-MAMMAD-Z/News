@@ -1,10 +1,15 @@
 from django.shortcuts import render ,redirect
 from django.http import HttpResponse
 from .froms import ContactForm
+from django.views.decorators.cache import cache_page
 
+
+@cache_page(60 * 15)
 def home(request):
     return render(request,'home/index.html')
 
+
+@cache_page(60 * 15)
 def contact(request):
     if request.method == 'POST':
             form = ContactForm(request.POST)

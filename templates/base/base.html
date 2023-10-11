@@ -1,4 +1,5 @@
 {% load static %}
+{% load cache %}
 {% block head %}
 {% endblock head%}
 <body>
@@ -14,6 +15,7 @@
         </div>
     </div>
     <!-- Preloader Start --> {% endcomment %}
+    {% cache 500 header %}
     <header>
         <!-- Header Start -->
         <div class="header-area">
@@ -117,6 +119,9 @@
         </div>
         <!-- Header End -->
     </header>
+
+    {% endcache %}
+
 {% block content%}
 
 {% endblock content%}
