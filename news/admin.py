@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import News , Category , Comment
+from . models import News , Category , Comment , Favorite
 
 class NewsAdmin(admin.ModelAdmin):
     list_display = ['title', 'author', 'created_time' ]
@@ -14,3 +14,4 @@ class CommentAdmin(admin.ModelAdmin):
 admin.site.register(News,NewsAdmin)
 admin.site.register(Category)
 admin.site.register(Comment)
+admin.site.register(Favorite)

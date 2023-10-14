@@ -1,8 +1,11 @@
 from django.shortcuts import render , redirect
-from django.http import HttpResponse
+from django.http import HttpResponse , JsonResponse
 from django.core.paginator import Paginator
-from .models import News , Category , Comment
+from .models import News , Category , Comment , Favorite
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 
 def news(request):
     news = News.objects.all()
@@ -55,4 +58,24 @@ def search(request):
     
 
 
+@login_required
+def favorite(request):
+    saved = Favorite.objects.filter(user=request.user)
+    paginator = Paginator(saved, 1)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'news/favorite.html', {"page_obj": page_obj})
 
+
+def save_favorite(request, post_id):
+    user = request.user  # Get the logged-in user
+    
+    # Check if the user has already saved this post as a favorite
+    if not Favorite.objects.filter(user=user, post_id=post_id).exists():
+        favorite = Favorite(user=user, post_id=post_id)
+        favorite.save()
+        messages.success(request, 'Post saved as a favorite.')
+        return redirect('news:news')
+    else:
+        messages.warning(request,"Post is already saved as a favorite.")
+        return redirect('news:news')
