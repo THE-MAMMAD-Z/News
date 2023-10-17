@@ -9,6 +9,6 @@ urlpatterns = [
     path('search/',views.search , name="search"),
     path('favorite/',views.favorite , name='favorite'),
     path('save_favorite/<int:post_id>/', views.save_favorite, name='save_favorite'),
-
+    path('tags/<str:tag_name>/',views.tag , name='tag')
 
 ]

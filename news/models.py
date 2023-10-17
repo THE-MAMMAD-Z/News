@@ -9,7 +9,13 @@ class News(models.Model) :
     content=models.TextField()
     author=models.CharField(max_length=100)
     category=models.ManyToManyField("Category")
+    tags = models.ManyToManyField("Tag")
 
+
+    class Meta:
+        verbose_name = "News"
+        ordering = ["-created_time"]
+        verbose_name_plural = "News"
 
     def __str__(self):
         return self.title
@@ -45,3 +51,11 @@ class Favorite(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.post.title}"
+    
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name

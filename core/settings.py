@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'api',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -163,7 +164,8 @@ REST_FRAMEWORK = {
         #'rest_framework.authentication.TokenAuthentication',
         #'rest_framework_simplejwt.authentication.JWTAuthentication',
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
 }
 
 SITE_ID = 1
@@ -185,3 +187,12 @@ REST_AUTH = {
 #         "LOCATION": "C:/Users/MOHAMMAD/Desktop/deploy/New folder",
 #     }
 # }
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
