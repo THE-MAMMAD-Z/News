@@ -2,11 +2,12 @@ from django.shortcuts import render ,redirect
 from django.http import HttpResponse
 from .froms import ContactForm
 from django.views.decorators.cache import cache_page
-
+from news.models import News
 
 @cache_page(60 * 15)
 def home(request):
-    return render(request,'home/index.html')
+    popular_posts = News.objects.all().order_by('-views_count')[:4]
+    return render(request,'home/index.html', {"popular" : popular_posts})
 
 
 @cache_page(60 * 15)

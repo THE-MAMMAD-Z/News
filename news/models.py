@@ -10,6 +10,7 @@ class News(models.Model) :
     author=models.CharField(max_length=100)
     category=models.ManyToManyField("Category")
     tags = models.ManyToManyField("Tag")
+    views_count = models.PositiveIntegerField(default=0)
 
 
     class Meta:

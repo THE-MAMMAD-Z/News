@@ -39,6 +39,8 @@ def detail_news(request,num):
             return redirect('/')
     form=CommentForm()
     news = News.objects.get(pk=num)
+    news.views_count += 1
+    news.save()
     comments=Comment.objects.filter(post=news,Active=1)
     return render(request , "news/blog_details.html",{"news":news , "comments" : comments , "form" : form})
 
