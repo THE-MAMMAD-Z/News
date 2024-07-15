@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import News , Category , Comment , Favorite , Tag
+from . models import News , Category , Comment , Favorite , Tag 
 
 class NewsAdmin(admin.ModelAdmin):
     list_display = ['title', 'author', 'created_time' ]

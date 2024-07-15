@@ -1,5 +1,5 @@
 from django import forms
-from .models import Comment , Favorite
+from .models import Comment , Favorite 
 
 
 class CommentForm(forms.ModelForm):
@@ -12,3 +12,5 @@ class FovoriteForm(forms.ModelForm):
     class Mdta :
         model=Favorite
         fields='__all__'
+
+

@@ -5,24 +5,25 @@ from rest_framework.generics import RetrieveUpdateDestroyAPIView, RetrieveDestro
 from django.views.generic import ListView
 from rest_framework.permissions import IsAdminUser , IsAuthenticated
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
-from . models import Article
-from .serializers import ArticleSerialiser , UserSerialiser
+from .serializers import NewsSerialiser , UserSerialiser
 from django.contrib.auth.models import User
+from news.models import News
 
-class ArticleListtest(ListView):
-    def get_queryset(self):
-        return Article.objects.filter(status=True)
+
+# class NewsListtest(ListView):
+#     def get_queryset(self):
+#         return News.objects.filter(status=True)
     
 
-class ArticleList(ListCreateAPIView):
-    queryset = Article.objects.all()
-    serializer_class =ArticleSerialiser
+class NewsList(ListCreateAPIView):
+    queryset = News.objects.all()
+    serializer_class =NewsSerialiser
     #authentication_classes = (SessionAuthentication,)
 
 
-class ArticleDetail(RetrieveUpdateDestroyAPIView):
-    queryset = Article.objects.all()
-    serializer_class =ArticleSerialiser
+class NewsDetail(RetrieveUpdateDestroyAPIView):
+    queryset = News.objects.all()
+    serializer_class =NewsSerialiser
 
 
 class UserList(ListCreateAPIView):

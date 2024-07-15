@@ -20,7 +20,7 @@ def login_view(request):
     return render(request,'accounts/login.html')
 
 
-@login_required
+
 def logout_view(request):
     logout(request)
     return redirect('/')
@@ -28,7 +28,6 @@ def logout_view(request):
 
 
 def profileregister(request):
-
     if request.method == "POST":
         profileRegisterForm = ProfileRegisterForm(request.POST, request.FILES)
         if profileRegisterForm.is_valid():
@@ -57,8 +56,7 @@ def profileregister(request):
                 address=profileRegisterForm.cleaned_data['address']
             )
             profilemodel.save()
-
-            return HttpResponseRedirect(reverse("account:profile"))
+            return HttpResponseRedirect(reverse("home:home"))
         else:
             print(profileRegisterForm.errors)
     else:

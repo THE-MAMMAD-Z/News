@@ -1,12 +1,13 @@
 from rest_framework import serializers
-from api.models import Article
+from news.models import *
 from django.contrib.auth.models import User
 
 
-class ArticleSerialiser(serializers.ModelSerializer):
+class NewsSerialiser(serializers.ModelSerializer):
+    tags_name = serializers.CharField(source='tags.name', read_only=True)
     class Meta:
-        model = Article
-        fields = ('title', "author" , "content" , "created","status",'slug')
+        model = News
+        fields = ('title', "created_time" , "author" , "category","tags",'views_count','tags_name')
 
 
 class UserSerialiser(serializers.ModelSerializer):

@@ -82,10 +82,10 @@
                                             <li><a href="{% url "news:news" %}">Blog</a></li>
                                             <li><a href="{% url "home:contact" %}">Contact</a></li>
 
-                                            {% if request.user.is_authenticated %}
+                                            {% if user.is_authenticated %}
                                             <li><a href="{% url "account:profile" %}">Profiel</a></li>
                                             <li><a href="{% url "account:logoutt" %}">Logout</a></li>
-                                            {% else %}
+                                            {% elif not user.is_authenticated %}
                                             <li><a href="{% url "account:loginn" %}">Login</a></li>
                                             <li><a href="{% url "account:signup" %}">Sign-up</a></li>
                                             {%  endif %}

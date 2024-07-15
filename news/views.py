@@ -2,9 +2,10 @@ from django.shortcuts import render , redirect
 from django.http import HttpResponse , JsonResponse
 from django.core.paginator import Paginator
 from .models import News , Category , Comment , Favorite , Tag
-from .forms import CommentForm
+from .forms import CommentForm 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.db.models import Count
 
 
 def news(request):
@@ -12,12 +13,8 @@ def news(request):
     paginator = Paginator(news, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    art = News.objects.filter(category__name="ART").count()
-    s = News.objects.filter(category__name="SPORT").count()
-    tr = News.objects.filter(category__name="TRAVEL").count()
-    tec = News.objects.filter(category__name="TECHNOLOGI").count()
-    f = News.objects.filter(category__name="FOOD").count()
-    c = News.objects.filter(category__name="CAR").count()
+    category = Category.objects.annotate(news_count=Count('news'))
+    
     latest = News.objects.order_by('-created_time')[:4]
     
     tags = Tag.objects.all()[:10]
@@ -25,24 +22,38 @@ def news(request):
     context={
         "news":news,
         'page_obj': page_obj,
-        "art":art,"s":s,"tr":tr,"tec":tec,"f":f,"c":c,
+        'category' : category,
         "latest":latest,
         "tags": tags
     }
     return render(request,"news/blog.html",context)
 
 def detail_news(request,num):
-    if request.method=='POST':
-        form=CommentForm(request.POST)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
         if form.is_valid():
             form.save()
+            print("Form is valid and saved!")
             return redirect('/')
+        else:
+            print("Form is not valid:", form.errors)
     form=CommentForm()
     news = News.objects.get(pk=num)
     news.views_count += 1
     news.save()
+    category = Category.objects.annotate(news_count=Count('news'))
     comments=Comment.objects.filter(post=news,Active=1)
-    return render(request , "news/blog_details.html",{"news":news , "comments" : comments , "form" : form})
+    latest = News.objects.order_by('-created_time')[:4]
+    tags = Tag.objects.all()[:10]
+    context = {
+        "news":news ,
+        "comments" : comments ,
+        "form" : form,
+        "latest":latest,
+        "tags": tags,
+        'category' : category,
+    }
+    return render(request , "news/blog_details.html",context)
 
 
 def categori(request,name):
@@ -67,19 +78,20 @@ def search(request):
 @login_required
 def favorite(request):
     saved = Favorite.objects.filter(user=request.user)
-    paginator = Paginator(saved, 1)
+    paginator = Paginator(saved, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    art = News.objects.filter(category__name="ART").count()
-    s = News.objects.filter(category__name="SPORT").count()
-    tr = News.objects.filter(category__name="TRAVEL").count()
-    tec = News.objects.filter(category__name="TECHNOLOGI").count()
-    f = News.objects.filter(category__name="FOOD").count()
-    c = News.objects.filter(category__name="CAR").count()
+    category = Category.objects.annotate(news_count=Count('news'))
+
     latest = News.objects.order_by('-created_time')[:4]
     
     tags = Tag.objects.all()[:10]
-    return render(request, 'news/favorite.html', {"page_obj": page_obj})
+    return render(request, 'news/favorite.html', context = {
+        'category' : category,
+        "latest":latest,
+        "tags": tags,
+        'page_obj': page_obj,
+    })
 
 
 def save_favorite(request, post_id):
@@ -99,18 +111,11 @@ def save_favorite(request, post_id):
 
 def tag(request,tag_name):
     blog_tags=News.objects.filter(tags__name=tag_name)
-    
-    art = News.objects.filter(category__name="ART").count()
-    s = News.objects.filter(category__name="SPORT").count()
-    tr = News.objects.filter(category__name="TRAVEL").count()
-    tec = News.objects.filter(category__name="TECHNOLOGI").count()
-    f = News.objects.filter(category__name="FOOD").count()
-    c = News.objects.filter(category__name="CAR").count()
+    category = Category.objects.annotate(news_count=Count('news'))
     latest = News.objects.order_by('-created_time')[:4]
-    
     tags = Tag.objects.all()[:10]
     context = {
-        "art":art,"s":s,"tr":tr,"tec":tec,"f":f,"c":c,
+        'category' : category,
         "latest":latest,
         "tags": tags,
         "page_obg":blog_tags

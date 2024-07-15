@@ -1,6 +1,7 @@
 {% extends "base/base.html" %}
 {% load static %}
 {% block head %}
+{% load comment_tags %}
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -27,113 +28,7 @@
    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 </head>
 {% endblock head %}
-{% comment %} <body>
-<!-- Preloader Start -->
-<div id="preloader-active">
-   <div class="preloader d-flex align-items-center justify-content-center">
-         <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-               <img src="{% static 'assets/img/logo/logo.png' %}" alt="">
-            </div>
-         </div>
-   </div>
-</div>
-<!-- Preloader Start -->
-<header>
-   <!-- Header Start -->
-   <div class="header-area">
-         <div class="main-header ">
-            <div class="header-top black-bg d-none d-sm-block">
-               <div class="container">
-                  <div class="col-xl-12">
-                     <div class="row d-flex justify-content-between align-items-center">
-                           <div class="header-info-left">
-                              <ul>     
-                                 <li class="title"><span class="flaticon-energy"></span> trending-title</li>
-                                 <li>Class property employ ancho red multi level mansion</li>
-                              </ul>
-                           </div>
-                           <div class="header-info-right">
-                              <ul class="header-date">
-                                 <li><span class="flaticon-calendar"></span> +880166 253 232</li>
-                              </ul>
-                           </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="header-mid gray-bg">
-               <div class="container">
-                  <div class="row d-flex align-items-center">
-                     <!-- Logo -->
-                     <div class="col-xl-3 col-lg-3 col-md-3 d-none d-md-block">
-                           <div class="logo">
-                              <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
-                           </div>
-                     </div>
-                     <div class="col-xl-9 col-lg-9 col-md-9">
-                           <div class="header-banner f-right ">
-                              <img src="{% static 'assets/img/gallery/header_card.png' %}" alt="">
-                           </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="header-bottom header-sticky">
-                  <div class="container">
-                     <div class="row align-items-center">
-                        <div class="col-xl-8 col-lg-8 col-md-12 header-flex">
-                           <!-- sticky -->
-                           <div class="sticky-logo">
-                              <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
-                           </div>
-                           <!-- Main-menu -->
-                           <div class="main-menu d-none d-md-block">
-                              <nav>                  
-                                 <ul id="navigation">
-                                       <li><a href="index.html">Home</a></li>
-                                       <li><a href="about.html">about</a></li>
-                                       <li><a href="categori.html">Category</a></li>
-                                       <li><a href="latest_news.html">Latest News</a></li>
-                                       <li><a href="#">Pages</a>
-                                          <ul class="submenu">
-                                             <li><a href="blog.html">Blog</a></li>
-                                             <li><a href="blog_details.html">Blog Details</a></li>
-                                             <li><a href="elements.html">Element</a></li>
-                                          </ul>
-                                       </li>
-                                       <li><a href="contact.html">Contact</a></li>
-                                 </ul>
-                              </nav>
-                           </div>
-                        </div>             
-                        <div class="col-xl-4 col-lg-4 col-md-4">
-                           <div class="header-right f-right d-none d-lg-block">
-                              <!-- Heder social -->
-                              <ul class="header-social">    
-                                 <li><a href="https://www.fb.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
-                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                 <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
-                              </ul>
-                              <!-- Search Nav -->
-                              <div class="nav-search search-switch">
-                                 <i class="fa fa-search"></i>
-                              </div>
-                           </div>
-                        </div>
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                           <div class="mobile_menu d-block d-md-none"></div>
-                        </div>
-                     </div>
-                  </div>
-            </div>
-         </div>
-   </div>
-   <!-- Header End -->
-</header> {% endcomment %}
+
 {% block content %}
 <main>
    <!--================Blog Area =================-->
@@ -186,64 +81,11 @@
                         <li><a href="#"><i class="fab fa-behance"></i></a></li>
                      </ul>
                   </div>
-                  <div class="navigation-area">
-                     <div class="row">
-                        <div
-                           class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                           <div class="thumb">
-                              <a href="#">
-                                 <img class="img-fluid" src="{% static 'assets/img/post/preview.png' %}" alt="">
-                              </a>
-                           </div>
-                           <div class="arrow">
-                              <a href="#">
-                                 <span class="lnr text-white ti-arrow-left"></span>
-                              </a>
-                           </div>
-                           <div class="detials">
-                              <p>Prev Post</p>
-                              <a href="#">
-                                 <h4>Space The Final Frontier</h4>
-                              </a>
-                           </div>
-                        </div>
-                        <div
-                           class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                           <div class="detials">
-                              <p>Next Post</p>
-                              <a href="#">
-                                 <h4>Telescopes 101</h4>
-                              </a>
-                           </div>
-                           <div class="arrow">
-                              <a href="#">
-                                 <span class="lnr text-white ti-arrow-right"></span>
-                              </a>
-                           </div>
-                           <div class="thumb">
-                              <a href="#">
-                                 <img class="img-fluid" src="{% static 'assets/img/post/next.png' %}" alt="">
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="blog-author">
-                  <div class="media align-items-center">
-                     <img src="{% static 'assets/img/blog/author.png' %}" alt="">
-                     <div class="media-body">
-                        <a href="#">
-                           <h4>Harvard milan</h4>
-                        </a>
-                        <p>Second divided from form fish beast made. Every of seas all gathered use saying you're, he
-                           our dominion twon Second divided from</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="comments-area">
-                  <h4>05 Comments</h4>
                   
+               </div>
+               
+               <div class="comments-area">
+                  <h4>{{comments.count}} Comment</h4>
                {% for comment in comments %}
                   <div class="comment-list">
                      <div class="single-comment justify-content-between d-flex">
@@ -262,9 +104,6 @@
                                     </h5>
                                     <p class="date">{{comment.created_time}}</p>
                                  </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
                               </div>
                            </div>
                         </div>
@@ -276,50 +115,55 @@
                </div>
                <div class="comment-form">
                   <h4>Leave a Comment</h4>
-                  <form class="form-contact comment_form" method="post" action="{% url "news:detail" num=news.id %}" id="commentForm">
+                  <form class="form-contact comment_form" method="post" action="{% url 'news:detail' num=news.id %}" id="commentForm">
                      {% csrf_token %}
                      <div class="row">
-                        <div class="col-12">
-                           <div class="form-group">
-                              <textarea class="form-control w-100" name="message" id="comment" cols="30" rows="9"
-                                 placeholder="Write Comment"></textarea>
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                           </div>
-                        </div>
-                        
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="form-group">
-                              <input class="form-control" name="subject" id="email" type="text" placeholder="Subject">
+                         <div class="col-12">
+                             <div class="form-group">
+                                 <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" placeholder="Write Comment"></textarea>
+                             </div>
+                         </div>
+                         {% if not user.is_authenticatd %}
+                         <div class="col-sm-6">
+                             <div class="form-group">
+                                 <input class="form-control"  name="name" id="name" type="text" placeholder="Name">
+                             </div>
+                         </div>
+                         <div class="col-sm-6">
+                             <div class="form-group">
+                                 <input class="form-control" name="email" id="email" type="email" placeholder="Email">
                            </div>
                         </div>
                         <div class="col-12">
+                        {% else %}
+                        <input class="form-control" value='{{ user.username}}' name="name" id="author_name" type="hidden">
+                        <input class="form-control" value='{{ user.email }}' name="email" id="email" type="hidden">
+                           
+                        {% endif %}
                            <div class="form-group">
-                              <input class="form-control" value='{{news.id}}' name="post" id="email" type="hidden" placeholder="post">
+                                 <input class="form-control" name="subject" id="subject" type="text" placeholder="Subject">
                            </div>
                         </div>
-                     </div> 
-                    
+                        <input class="form-control" value='{{ news.id }}' name="post" type="hidden">
+                     </div>
                      <div class="form-group">
                         <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
                      </div>
-                  </form>
+               </form>
+
+
+                  
                </div>
             </div>
             <div class="col-lg-4">
                <div class="blog_right_sidebar">
                   
                   {% include "base/search.html" %}
+
                   {% include "base/category.html" %}
+
                   {% include "base/recent.html" %}
+
                   {% include "base/tags.html" %}
                   
                   <aside class="single_sidebar_widget instagram_feeds">
@@ -376,105 +220,7 @@
    <!--================ Blog Area end =================-->
 </main>
 {% endblock content %}
-{% comment %} <footer>
-   <!-- Footer Start-->
-   <div class="footer-main footer-bg">
-      <div class="footer-area footer-padding">
-         <div class="container">
-            <div class="row d-flex justify-content-between">
-                  <div class="col-xl-3 col-lg-3 col-md-5 col-sm-8">
-                     <div class="single-footer-caption mb-50">
-                        <div class="single-footer-caption mb-30">
-                              <!-- logo -->
-                              <div class="footer-logo">
-                                 <a href="index.html"><img src="{% static 'assets/img/logo/logo2_footer.png' %}" alt=""></a>
-                              </div>
-                              <div class="footer-tittle">
-                                 <div class="footer-pera">
-                                    <p class="info1">Lorem ipsum dolor sit amet, nsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                    <p class="info2">198 West 21th Street, Suite 721 New York,NY 10010</p>
-                                    <p class="info2">Phone: +95 (0) 123 456 789 Cell: +95 (0) 123 456 789</p>
-                              </div>
-                              </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-4 col-lg-4 col-md-5 col-sm-7">
-                     <div class="single-footer-caption mb-50">
-                        <div class="footer-tittle">
-                              <h4>Popular post</h4>
-                        </div>
-                        <!-- Popular post -->
-                        <div class="whats-right-single mb-20">
-                              <div class="whats-right-img">
-                                 <img src="{% static 'assets/img/gallery/footer_post1.png' %}" alt="">
-                              </div>
-                              <div class="whats-right-cap">
-                                 <h4><a href="details.html">Scarlett’s disappointment at latest accolade</a></h4>
-                                 <p>Jhon  |  2 hours ago</p> 
-                              </div>
-                        </div>
-                        <!-- Popular post -->
-                        <div class="whats-right-single mb-20">
-                              <div class="whats-right-img">
-                                 <img src="{% static 'assets/img/gallery/footer_post2.png' %}" alt="">
-                              </div>
-                              <div class="whats-right-cap">
-                                 <h4><a href="details.html">Scarlett’s disappointment at latest accolade</a></h4>
-                                 <p>Jhon  |  2 hours ago</p> 
-                              </div>
-                        </div>
-                        <!-- Popular post -->
-                        <div class="whats-right-single mb-20">
-                              <div class="whats-right-img">
-                                 <img src="{% static 'assets/img/gallery/footer_post3.png' %}" alt="">
-                              </div>
-                              <div class="whats-right-cap">
-                                 <h4><a href="details.html">Scarlett’s disappointment at latest accolade</a></h4>
-                                 <p>Jhon  |  2 hours ago</p> 
-                              </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
-                     <div class="single-footer-caption mb-50">
-                        <div class="banner">
-                              <img src="{% static 'assets/img/gallery/body_card4.png' %}" alt="">
-                        </div>
-                     </div>
-                  </div>
-            </div>
-         </div>
-      </div>
-      <!-- footer-bottom aera -->
-      <div class="footer-bottom-area footer-bg">
-         <div class="container">
-            <div class="footer-border">
-                     <div class="row d-flex align-items-center">
-                        <div class="col-xl-12 ">
-                              <div class="footer-copy-right text-center">
-                                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                              </div>
-                        </div>
-                     </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- Footer End-->
-</footer>
-<!-- Search model Begin -->
-<div class="search-model-box">
-   <div class="d-flex align-items-center h-100 justify-content-center">
-         <div class="search-close-btn">+</div>
-         <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Searching key.....">
-         </form>
-   </div>
-</div> {% endcomment %}
-<!-- Search model end -->
+
 
    <!-- All JS Custom Plugins Link Here here -->
 {% block js %}
