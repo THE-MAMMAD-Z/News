@@ -1,48 +1,106 @@
 from django.test import TestCase
-from home.models import Contact  
+from django.contrib.auth.models import User
+from accounts.models import UserProfile 
+from home.models import Contact
+from news.models import News, Category, Comment, Favorite, Tag
+class UserProfileModelTest(TestCase):
 
-class ContactModelTest(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        # Set up non-modified objects used by all test methods
-        Contact.objects.create(
-            name='John Doe',
-            email='johndoe@example.com',
-            subject='Test Subject',
-            message='Test Message'
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.profile = UserProfile.objects.create(
+            user=self.user,
+            first_name='John',
+            last_name='Doe',
+            email='john.doe@example.com',
+            phone='1234567890'
         )
 
-    def test_name_label(self):
-        contact = Contact.objects.get(id=1)
-        field_label = contact._meta.get_field('name').verbose_name
-        self.assertEqual(field_label, 'name')
+    def test_user_profile_str(self):
+        self.assertEqual(str(self.profile), 'testuser')
 
-    def test_email_label(self):
-        contact = Contact.objects.get(id=1)
-        field_label = contact._meta.get_field('email').verbose_name
-        self.assertEqual(field_label, 'email')
+    def test_default_gender(self):
+        self.assertEqual(self.profile.Gender, UserProfile.man)
 
-    def test_subject_label(self):
-        contact = Contact.objects.get(id=1)
-        field_label = contact._meta.get_field('subject').verbose_name
-        self.assertEqual(field_label, 'subject')
+class ContactModelTest(TestCase):
 
-    def test_message_label(self):
-        contact = Contact.objects.get(id=1)
-        field_label = contact._meta.get_field('message').verbose_name
-        self.assertEqual(field_label, 'message')
+    def setUp(self):
+        self.contact = Contact.objects.create(
+            name='Jane Smith',
+            email='jane.smith@example.com',
+            subject='Test Subject',
+            message='This is a test message.'
+        )
 
-    def test_name_max_length(self):
-        contact = Contact.objects.get(id=1)
-        max_length = contact._meta.get_field('name').max_length
-        self.assertEqual(max_length, 100)
+    def test_contact_str(self):
+        self.assertEqual(str(self.contact), 'Test Subject')
 
-    def test_subject_max_length(self):
-        contact = Contact.objects.get(id=1)
-        max_length = contact._meta.get_field('subject').max_length
-        self.assertEqual(max_length, 100)
+class NewsModelTest(TestCase):
 
-    def test_object_name_is_subject(self):
-        contact = Contact.objects.get(id=1)
-        expected_object_name = contact.subject
-        self.assertEqual(expected_object_name, str(contact))
+    def setUp(self):
+        self.category = Category.objects.create(name='Test Category')
+        self.tag = Tag.objects.create(name='Test Tag')
+        self.news = News.objects.create(
+            title='Test News',
+            image='path/to/image.jpg',
+            content='This is test content.',
+            author='Author Name'
+        )
+        self.news.category.add(self.category)
+        self.news.tags.add(self.tag)
+
+    def test_news_str(self):
+        self.assertEqual(str(self.news), 'Test News')
+
+    def test_news_ordering(self):
+        self.assertEqual(News.objects.first(), self.news)
+
+class CategoryModelTest(TestCase):
+
+    def setUp(self):
+        self.category = Category.objects.create(name='Test Category')
+
+    def test_category_str(self):
+        self.assertEqual(str(self.category), 'Test Category')
+
+class CommentModelTest(TestCase):
+
+    def setUp(self):
+        self.news = News.objects.create(
+            title='Test News',
+            image='path/to/image.jpg',
+            content='This is test content.',
+            author='Author Name'
+        )
+        self.comment = Comment.objects.create(
+            post=self.news,
+            name='Commenter Name',
+            email='commenter@example.com',
+            subject='Comment Subject',
+            message='This is a comment.'
+        )
+
+    def test_comment_str(self):
+        self.assertEqual(str(self.comment), 'Commenter Name')
+
+class FavoriteModelTest(TestCase):
+
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpass')
+        self.news = News.objects.create(
+            title='Test News',
+            image='path/to/image.jpg',
+            content='This is test content.',
+            author='Author Name'
+        )
+        self.favorite = Favorite.objects.create(user=self.user, post=self.news)
+
+    def test_favorite_str(self):
+        self.assertEqual(str(self.favorite), 'testuser - Test News')
+
+class TagModelTest(TestCase):
+
+    def setUp(self):
+        self.tag = Tag.objects.create(name='Test Tag')
+
+    def test_tag_str(self):
+        self.assertEqual(str(self.tag), 'Test Tag')
