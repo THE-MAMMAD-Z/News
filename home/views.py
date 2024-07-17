@@ -1,6 +1,6 @@
 from django.shortcuts import render ,redirect
 from django.http import HttpResponse
-from .froms import ContactForm
+from .forms import ContactForm
 from django.views.decorators.cache import cache_page
 from news.models import News
 

@@ -7,7 +7,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import  ProfileRegisterForm , ProfileEditForm ,UserEditForm
 from .models import UserProfile
 from django.urls import reverse
-
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 def login_view(request):
     if request.method == "POST":
@@ -56,6 +58,18 @@ def profileregister(request):
                 address=profileRegisterForm.cleaned_data['address']
             )
             profilemodel.save()
+
+            #send email
+            # subject = 'Welcome to Our Site!'
+            # html_message = render_to_string('emails/welcome_email.html', {'user': user})
+            # plain_message = strip_tags(html_message)
+            # from_email = 'your_email@gmail.com'
+            # to = user.email
+
+            # send_mail(subject, plain_message, from_email, [to], html_message=html_message)
+
+
+
             return HttpResponseRedirect(reverse("home:home"))
         else:
             print(profileRegisterForm.errors)

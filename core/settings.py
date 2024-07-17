@@ -201,6 +201,7 @@ LOGS_DIR = os.path.join(BASE_DIR, 'logs')
 if not os.path.exists(LOGS_DIR):
     os.makedirs(LOGS_DIR)
 
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -228,3 +229,12 @@ LOGGING = {
         },
     },
 }
+
+
+#Email Configuration 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mmdzaferani0@gmail.com'
+EMAIL_HOST_PASSWORD = 'Sezar1381'
