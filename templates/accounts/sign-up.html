@@ -23,96 +23,65 @@
 				<form action="{% url "account:signup" %}" method="post" enctype="multipart/form-data" >
                     {% csrf_token %}
 
-
 					<div class="form-group"><br>
-						<label for="first_name">Name:</label>
-						{{formData.first_name}}
+						<label for="fullname">Name:</label>
+						<input type="text" placeholder="Enter your fullname" name='full_name' required>
 					</div>
 			
-					<div class="form-group"><br>
-						<label for="last_name">Family:</label>
-						{{formData.last_name}}
-					</div>
+					
 			
 					<div class="form-group"><br>
 						<label for="email">Email:</label>
-						{{formData.email}}
+						<input type="text" placeholder="Enter your email" name='email' required>
 					</div>
 			
 					<div class="form-group"><br>
 						<label for="phone">Phone:</label>
-						{{formData.phone}}
+						<input type="text" placeholder="Enter your phone" name='phone_number' required>
 					</div>
 			
 					<div class="form-group"><br>
-					    <label for="username">address:</label>
-					    {{formData.address}}
+					    <label for="username">Address:</label>
+						<input type="textbox" placeholder="Enter your address" name='address' required>
 				    </div>
 
 
 					<div class="form-group"><br>
-					    <label for="username">gender:</label>
-					    {{formData.Gender}}
+					    {{form.Gender}}
 				    </div>
 			
 					<div class="form-group"><br>
 					    <label for="username">Username:</label>
-					    {{formData.username}}
+						<input type="text" placeholder="Enter your Username" name='username' required>
 				    </div>
 			
 					<div class="form-group"><br>
 						<label for="password">Password:</label>
-						{{formData.password}}
+						<input type="password"  name='password1' required>
 					</div>
 			
+
+					<div class="form-group"><br>
+						<label for="password">Confirm Password:</label>
+						<input type="password" name='password2' required>
+					</div>
+
 					<div class="form-group"><br>
 						<label for="profile_picture">Profile Image:</label>
-						{{formData.profile_picture}}
+						<span class="gender-title">Profile Photo</span>
+							<div class="category">
+							<label for="dot-1">
+								<input type="file" id="imageUpload" name="profile_photo" accept="image/*">
+						</label>
 					</div>
 			
-					{% comment %} <div class="form-group">
-						<button type="submit">Register</button>
-					</div>  
-					<label >Username</label>
-					<input class="text" type="text" name="username"  required=""><br> 
-
-					<label >First Name</label>
-					<input class="text " type="text" name="first_name"  required=""><br>  
-					
-					<label >Last Name</label>
-					<input class="text " type="text" name="last_name"  required=""><br>  
-					
-					<label >Phone</label><br>
-					<input class="text " type="text" name="phone"  required=""><br> 
-					
-					
-					
-					 <label for="gender">Gender:</label><br>
-					{{formData.Gender}}
-					<br>  
-					<br> 
-					<label >Address</label><br>
-					<input class="text " type="text" name="address"  required=""><br> 
-					
-					<label >Email</label>
-					<input class="text " type="email" name="email"  required=""><br>  
-					
-					<label >Password</label>
-					<input class="text " type="password" name="password"  required=""><br>  
-										
-					<label >Profiel Picture</label>
-					
-						{{formData.profile_picture}} {% endcomment %}
-
 						<div class="wthree-text">
 						<div class="clear"> </div>
 					
 					<input type="submit" value="SIGNUP">
 				</form> 
-                <form>
-                
-                
-                </form>
+
+
 				<p>Already have an Account? <a href="{% url "account:login" %}"> Login Now!</a></p>
 			</div>
 		</div>

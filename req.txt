@@ -18,6 +18,7 @@ jsonschema==4.19.1
 jsonschema-specifications==2023.7.1
 oauthlib==3.2.2
 Pillow==10.0.1
+psycopg2-binary==2.9.9
 pycparser==2.21
 PyJWT==2.8.0
 python3-openid==3.2.0

@@ -1,36 +1,33 @@
+# forms.py
 from django import forms
-from .models import UserProfile
-from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from .models import CustomUser
 
+class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+    full_name = forms.CharField(required=True)
+    phone_number = forms.CharField(required=False)
+    profile_photo = forms.ImageField(required=False)
+    Gender = forms.ChoiceField(choices=CustomUser.status_choices, required=True)
+    address = forms.CharField(widget=forms.Textarea, required=True)
 
-class ProfileRegisterForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=100)
-    last_name = forms.CharField(max_length=100)
-    username= forms.CharField( max_length=100)
-    password = forms.CharField(widget=forms.PasswordInput)
-    email= forms.EmailField(widget=forms.EmailInput)
-    
     class Meta:
-        model = UserProfile
-        fields=['profile_picture','phone','Gender','address']
-    
+        model = CustomUser
+        fields = ('username', 'email', 'full_name', 'phone_number', 'profile_photo', 'Gender', 'address', 'password1', 'password2')
+
+class CustomAuthenticationForm(AuthenticationForm):
+    username = forms.CharField(max_length=254, widget=forms.TextInput(attrs={'autofocus': True}))
+    password = forms.CharField(label=("Password"), strip=False, widget=forms.PasswordInput)
 
 
-class ProfileEditForm(forms.ModelForm):
+class ProfileUpdateForm(forms.ModelForm):
+    email = forms.EmailField(required=True)
+    full_name = forms.CharField(required=True)
+    phone_number = forms.CharField(required=False)
+    profile_photo = forms.ImageField(required=False)
+    Gender = forms.ChoiceField(choices=CustomUser.status_choices, required=True)
+    address = forms.CharField(widget=forms.Textarea, required=True)
+
     class Meta:
-        model=UserProfile
-        fields=['profile_picture','Gender','phone','address']
-
-
-class UserEditForm(UserChangeForm):
-    class Meta(UserChangeForm.Meta):
-        fields=['first_name','last_name','email']
-    password=None
-
-
-
-
-# class UserProfileForm(forms.ModelForm):
-#     class Meta:
-#         model = UserProfile
-#         fields = ('profile_picture', 'first_name', 'last_name', 'email', 'phone')
+        model = CustomUser
+        fields = ['username', 'email', 'full_name', 'phone_number', 'profile_photo', 'Gender', 'address']

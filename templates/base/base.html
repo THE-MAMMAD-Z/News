@@ -82,13 +82,13 @@
                                             <li><a href="{% url "news:news" %}">Blog</a></li>
                                             <li><a href="{% url "home:contact" %}">Contact</a></li>
 
-                                            {% if user.is_authenticated %}
+                                            {% comment %} {% if user.is_authenticated %}
                                             <li><a href="{% url "account:profile" %}">Profile</a></li>
                                             <li><a href="{% url "account:logout" %}">Logout</a></li>
                                             {% else %}
                                             <li><a href="{% url "account:login" %}">Login</a></li>
                                             <li><a href="{% url "account:signup" %}">Sign-up</a></li>
-                                            {%  endif %}
+                                            {%  endif %} {% endcomment %}
                                         </ul>
                                     </nav>
                                 </div>

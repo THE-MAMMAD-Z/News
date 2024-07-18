@@ -105,19 +105,19 @@
 
 {% block content %}
 <div class="profile-container">
-    <img class="profile-picture" src="{{ profile.profile_picture.url }}" alt="Profile Picture"> 
-    <h2 class="profile-name">{{ profile.user.username }} </h2> 
+    <img class="profile-picture" src="{{ profile.profile_photo.url }}" alt="Profile Picture"> 
+    <h2 class="profile-name">{{ profile.username }} </h2> 
     <!-- <p class="profile-bio">Web Developer | Frontend Enthusiast</p> -->
 
 
     <div class="profile-info">
         <span>Full Name:</span>
-        <span>{{ profile.user.get_full_name }}</span>
+        <span>{{ profile.user.full_name }}</span>
     </div> 
 
     <div class="profile-info">
         <span>Email:</span>
-        <span>{{ profile.user.email }}</span>
+        <span>{{ profile.email }}</span>
     </div> 
     <div class="profile-info">
         <span>Location:</span>
@@ -126,7 +126,7 @@
 
      <div class="profile-info">
         <span>Phone Number:</span>
-        <span>{{ profile.phone }}</span>
+        <span>{{ profile.phone_number }}</span>
     </div> 
 
     <div class="profile-info">
