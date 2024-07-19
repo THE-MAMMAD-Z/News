@@ -3062,3 +3062,48 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'loginn' not found. 'loginn' 
  INFO basehttp "GET / HTTP/1.1" 200 71212 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
  WARNING log Not Found: /site.webmanifest C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\log.py
  WARNING basehttp "GET /site.webmanifest HTTP/1.1" 404 3191 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO autoreload Watching for file changes with StatReloader C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\autoreload.py
+ INFO basehttp "GET / HTTP/1.1" 200 71123 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ WARNING log Not Found: /site.webmanifest C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\log.py
+ WARNING basehttp "GET /site.webmanifest HTTP/1.1" 404 3191 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/ HTTP/1.1" 302 0 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2549 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/ HTTP/1.1" 302 0 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2549 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ WARNING log Not Found: /favicon.ico C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\log.py
+ WARNING basehttp "GET /favicon.ico HTTP/1.1" 404 3176 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/ HTTP/1.1" 200 39261 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/news/news/ HTTP/1.1" 200 14849 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/news/news/add/ HTTP/1.1" 200 18052 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO autoreload Watching for file changes with StatReloader C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\autoreload.py
+ INFO basehttp "GET / HTTP/1.1" 200 71123 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ WARNING log Not Found: /site.webmanifest C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\log.py
+ WARNING basehttp "GET /site.webmanifest HTTP/1.1" 404 3191 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/ HTTP/1.1" 302 0 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2549 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/ HTTP/1.1" 302 0 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2549 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ WARNING log Not Found: /favicon.ico C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\log.py
+ WARNING basehttp "GET /favicon.ico HTTP/1.1" 404 3176 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2761 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO autoreload Watching for file changes with StatReloader C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\autoreload.py
+ INFO basehttp "GET / HTTP/1.1" 200 71123 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ WARNING log Not Found: /site.webmanifest C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\log.py
+ WARNING basehttp "GET /site.webmanifest HTTP/1.1" 404 3191 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/ HTTP/1.1" 302 0 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2549 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/ HTTP/1.1" 302 0 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 2549 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ WARNING log Not Found: /favicon.ico C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\utils\log.py
+ WARNING basehttp "GET /favicon.ico HTTP/1.1" 404 3176 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 200 2761 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/ HTTP/1.1" 200 39260 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 8353 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/accounts/userprofile/ HTTP/1.1" 200 14445 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/auth/user/ HTTP/1.1" 200 18968 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
+ INFO basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343 C:\Users\MOHAMMAD\Desktop\django projects\NEWS WEBSITE\env\Lib\site-packages\django\core\servers\basehttp.py
