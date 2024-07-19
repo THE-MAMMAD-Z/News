@@ -23,65 +23,62 @@
 				<form action="{% url "account:signup" %}" method="post" enctype="multipart/form-data" >
                     {% csrf_token %}
 
+
 					<div class="form-group"><br>
-						<label for="fullname">Name:</label>
-						<input type="text" placeholder="Enter your fullname" name='full_name' required>
+						<label for="first_name">Name:</label>
+						{{formData.first_name}}
 					</div>
 			
-					
+					<div class="form-group"><br>
+						<label for="last_name">Family:</label>
+						{{formData.last_name}}
+					</div>
 			
 					<div class="form-group"><br>
 						<label for="email">Email:</label>
-						<input type="text" placeholder="Enter your email" name='email' required>
+						{{formData.email}}
 					</div>
 			
 					<div class="form-group"><br>
 						<label for="phone">Phone:</label>
-						<input type="text" placeholder="Enter your phone" name='phone_number' required>
+						{{formData.phone}}
 					</div>
 			
 					<div class="form-group"><br>
-					    <label for="username">Address:</label>
-						<input type="textbox" placeholder="Enter your address" name='address' required>
+					    <label for="username">address:</label>
+					    {{formData.address}}
 				    </div>
 
 
 					<div class="form-group"><br>
-					    {{form.Gender}}
+					    <label for="username">gender:</label>
+					    {{formData.Gender}}
 				    </div>
 			
 					<div class="form-group"><br>
 					    <label for="username">Username:</label>
-						<input type="text" placeholder="Enter your Username" name='username' required>
+					    {{formData.username}}
 				    </div>
 			
 					<div class="form-group"><br>
 						<label for="password">Password:</label>
-						<input type="password"  name='password1' required>
+						{{formData.password}}
 					</div>
 			
-
-					<div class="form-group"><br>
-						<label for="password">Confirm Password:</label>
-						<input type="password" name='password2' required>
-					</div>
-
 					<div class="form-group"><br>
 						<label for="profile_picture">Profile Image:</label>
-						<span class="gender-title">Profile Photo</span>
-							<div class="category">
-							<label for="dot-1">
-								<input type="file" id="imageUpload" name="profile_photo" accept="image/*">
-						</label>
+						{{formData.profile_picture}}
 					</div>
-			
+
 						<div class="wthree-text">
 						<div class="clear"> </div>
 					
 					<input type="submit" value="SIGNUP">
 				</form> 
-
-
+                <form>
+                
+                
+                </form>
 				<p>Already have an Account? <a href="{% url "account:login" %}"> Login Now!</a></p>
 			</div>
 		</div>
@@ -89,19 +86,7 @@
 		<div class="colorlibcopy-agile">
 			<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
 		</div>
-		<!-- //copyright -->
-		<ul class="colorlib-bubbles">
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+		
 	</div>
 	<!-- //main -->
 </body>
